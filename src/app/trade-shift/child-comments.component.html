@@ -1,0 +1,18 @@
+<div class = 'button-centered'>
+    <button class='btn btn-primary'
+        (click)='toggleComments()'>
+    {{showComments ? 'Hide' : 'Show'}} Comments ({{this.childComments.length}})
+    </button>
+</div>
+
+<div *ngIf = 'showComments'>
+    <div class = 'card-footer card-comment border-0' *ngFor = 'let childComment of childComments'>
+        <img [src]='returnUserInfo(childComment.userID, 3)'
+                        [style.width.px]='imageWidth/2'
+                        [style.margin.px]='imageMargin'>
+            {{returnUserInfo(childComment.userID, 1)}}
+        <div class = 'no-bold'>
+            {{childComment.comment}}
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class = 'card'>
+    <div class = 'card-header center-text'>
+        Shifts for trade on May {{dayNumber}}
+    </div>
+</div>
+<button class='btn btn-outline-secondary'
+                (click)='onBack()'>
+                <i class='fa fa-chevron-left'></i> Back
+</button>
+<div *ngIf = 'filteredPosts && users && filteredPosts.length && users.length'>
+    <div class='card' *ngFor='let post of filteredPosts'>
+        <div class='card-header'>
+            <img [src]='returnUserInfo(post.userID, 3)'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+
+            {{returnUserInfo(post.userID, 1)}}
+
+            <a [routerLink]="['/tradeShift', dayNumber, post.postID]">
+                <button class='btn btn-primary'>
+                    Comments
+                </button>
+            </a>
+        </div>
+        <div class = 'card-body'>
+            {{post.postComment}}
+        </div>
+    </div>
+</div>
+<div class = "no-show-screen" *ngIf = 'showNoPostScreen'>
+    <div class = 'card-body outline-showing'>
+        <h1>Sorry Pal! Looks like there are no shifts here yet...</h1>
+        <img src='./assets/images/stressedMickey.jpg'>
+    </div>    
+</div>

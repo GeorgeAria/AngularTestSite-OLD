@@ -1,0 +1,32 @@
+[
+    {
+        "childCommentID": 1,
+        "commentID": 1,
+        "userID": 1,
+        "comment": "Hiya Donald! That's a little too late for me. Sorry..."
+    },
+    {
+        "childCommentID": 2,
+        "commentID": 3,
+        "userID": 1,
+        "comment": "Hi Goofy! I'd love to trade with you! Can you send me your Hub ID? :)"
+    },
+    {
+        "childCommentID": 3,
+        "commentID": 4,
+        "userID": 2,
+        "comment": "Hi Goofy! I like Antiquities! Lets trade!!"
+    },
+    {
+        "childCommentID": 4,
+        "commentID": 2,
+        "userID": 2,
+        "comment": "Hi Daisy! I've never worked at Main Street before, so lets trade!"
+    },
+    {
+        "childCommentID": 5,
+        "commentID": 2,
+        "userID": 4,
+        "comment": "Ok Minnie! I'll text you my Hub ID! :)"
+    }
+]

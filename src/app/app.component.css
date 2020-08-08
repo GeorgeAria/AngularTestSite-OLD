@@ -1,0 +1,15 @@
+.nav-link {
+  font-size: large;
+}
+
+.bg-primary {
+  background-color: #375a7f;
+}
+
+a{
+  color:	#ffffff;
+}
+
+.nav-link:hover{
+  color:  	#ff09d6;
+}

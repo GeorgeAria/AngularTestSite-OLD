@@ -1,0 +1,21 @@
+.card-comment{
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.btn{
+    height: 40px;
+    width: 190px;
+}
+
+.button-centered{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.no-bold{
+    font-weight: normal;
+    margin-top: 10px;
+}

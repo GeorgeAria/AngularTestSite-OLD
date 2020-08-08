@@ -1,0 +1,26 @@
+[
+    {
+        "commentID": 1,
+        "postID": 1,
+        "userID": 3,
+        "comment": "I have WOD HH: 18:30-03:00 if you want to trade?"
+    },
+    {
+        "commentID": 2,
+        "postID": 2,
+        "userID": 4,
+        "comment": "I have China Closet HH: 15:00-00:00?"
+    },
+    {
+        "commentID": 3,
+        "postID": 1,
+        "userID": 5,
+        "comment": "I have WOD HH: 06:30-10:30 if you want to trade?"
+    },
+    {
+        "commentID": 4,
+        "postID": 3,
+        "userID": 5,
+        "comment": "I have Antiquities HH: 18:00-00:00 if you're down?"
+    }
+]

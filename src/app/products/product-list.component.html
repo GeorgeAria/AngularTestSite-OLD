@@ -1,0 +1,133 @@
+<div class='card'>
+  <div class='card-header'>
+    <!--
+      "pageTitle" in between two pairs of curly braces is an example of interpolation.
+      "pageTitle" comes from the "product-list.component.ts" class.
+      This is an example of one-way binding, since this only allows you to read (not write) the value.
+      You can call methods too if they return a value that the template can use (like a string), (e.g. getTitle()).
+    -->
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <!--
+          -When dealing with a user-entry element (like a text field), two-way binding could be used to
+          show the value in the DOM while also making changes of some sort in the component.
+          To do this, we use the "ngModel" Angular directive, which is enclosed in a pair of parenthesis and square brackets.
+          The value to the right (in this case "listFilter"), is a template expression from the component.
+          In this case, "listFilter" is the get and set method for the "_listFilter" template expression.
+          NOTE: Need to import "FormsModule" in an Angular module to use this.
+        -->
+        <input type='text'
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <!--
+      "ngIf" is an example of a structural directive, which modifies the structure or layout of a view.
+      It will do this by adding, deleting or manipulating template elements and their children.
+      The "*" before the "ngIf" tells us that this is a structural directive.
+      If what ngIf evaluates to is "false", it will remove the HTML element and its children from the DOM.
+      -In this case, it will only show something on the DOM if the "listFilter" property from the
+      "product-list.component.ts" file actually has a value, (in this case a string), assigned to it.
+      NOTE: Need to import "BrowserModule" in an Angular module to use this.
+    -->
+    <div class='row'
+         *ngIf='listFilter'>
+      <div class='col-md-6'>
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+    <div class='table-responsive'>
+      <table class='table'
+             *ngIf='products && products.length'>
+        <thead>
+          <tr>
+            <th>
+              <!--
+                The following is an example of "Event Binding".
+                -The parenthesis around the "click" element property means that it is being listened to by
+                the product-list component, which will execute the method in parenthesis to the right.
+                The element property can also be called the "Target Event".
+                The method name to the right can be called the "Template Expression".
+              -->
+              <button class='btn btn-primary'
+                      (click)='toggleImage()'>
+                {{showImage ? 'Hide' : 'Show'}} Image
+              </button>
+            </th>
+            <th>Product</th>
+            <th>Code</th>
+            <th>Available</th>
+            <th>Price</th>
+            <th>5 Star Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+            "ngFor" repeats a portion of the DOM tree, once for each item in an iterable list.
+            The HTML code below it would show how to display a single item, but it would repeated for each item in the list.
+            The value after the "let" keyword is known as the "Template input variable".
+            It can be referenced anywhere after it was declared.
+            The "filteredProducts" is the list we will go through.
+            -We use "of" since it iterates over iterable objects, where as "in" would iterate over the properties of those objects,
+            which would end up returning values like 0, 1 and 2.
+            NOTE: Need to import "BrowserModule" in an Angular module to use this.
+          -->
+          <tr *ngFor='let product of filteredProducts'>
+            <td>
+              <!--
+                The following is an example of "Property binding".
+                -When you are trying to modify the value of an element property (like "src")
+                with a template expression (like "imageWidth"), you must enclose it within square brackets ([]).
+                You then enclose the template expression with quotes.
+                You can do the same with interpolation if you remove the square brackets and use curly braces instead of quotes.
+                You use interpolation if it is used as part of a larger expression (like interpolation within a string).
+                NOTE: This is one-way binding, like interpolation.
+                
+              -->
+              <img *ngIf='showImage'
+                   [src]='product.imageUrl'
+                   [title]='product.productName'
+                   [style.width.px]='imageWidth'
+                   [style.margin.px]='imageMargin'>
+            </td>
+            <td>
+              <!--
+                This "routerLink" is given two arguments instead of one.
+                The first one is still the route the Angular router will look for.
+                The second one is a parameter following the first argument's route.
+                This allows us to load a different component with object-specific information shown.
+              -->
+              <a [routerLink]="['/products', product.productId]">
+                {{ product.productName }}
+              </a>
+            </td>
+            <!--
+              Pipes (|) transform bound properties before display.
+              There are many built-in Angular pipes, like date, number, currency, json, slice, etc.
+              Pipe parameters can be defined by placing a colon (:) after a pipe name and enclosing the parameter in quotes.
+              -The "currency" pipe below is taking 3 paramaters: the desired currency code,  a string defining
+              -how to show the symbol, and the digit info. (Minimum # of integer digits, Minimum # of fractional digits and max
+              number of fractional digits.
+              Custom pipes can also be built which is useful when you chain pipes.
+            -->
+            <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td>
+            <td>{{ product.releaseDate }}</td>
+            <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>
+              <pm-star [rating]='product.starRating'
+                       (ratingClicked)='onRatingClicked($event)'>
+              </pm-star>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

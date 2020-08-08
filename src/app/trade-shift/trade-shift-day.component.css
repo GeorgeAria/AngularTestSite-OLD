@@ -1,0 +1,39 @@
+.btn-outline-secondary{
+    margin-bottom: 30px;
+}
+
+h1{
+    text-align: center;
+}
+
+.card{
+    margin-bottom: 40px;
+}
+
+.card-header{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.btn-primary{
+    float: right;
+    height: 45px;
+    width: 110px;
+}
+
+.no-show-screen{
+    margin-top: 50px;
+    text-align: center;
+}
+
+img{
+    margin-top: 40px;
+}
+
+.outline-showing{
+    outline: solid;
+}

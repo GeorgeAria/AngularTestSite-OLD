@@ -1,0 +1,32 @@
+[
+    {
+      "userId": 1,
+      "userName": "Mickey Mouse",
+      "email": "mickey.mouse@disney.com",
+      "imageUrl": "assets/images/mickey.jpg"
+    },
+    {
+      "userId": 2,
+      "userName": "Minnie Mouse",
+      "email": "minnie.mouse@disney.com",
+      "imageUrl": "assets/images/minnie.png"
+    },
+    {
+      "userId": 3,
+      "userName": "Donald Duck",
+      "email": "donald.duck@disney.com",
+      "imageUrl": "assets/images/donald.png"
+    },
+    {
+      "userId": 4,
+      "userName": "Daisy Duck",
+      "email": "daisy.duck@disney.com",
+      "imageUrl": "assets/images/daisy.jpg"
+    },
+    {
+      "userId": 5,
+      "userName": "Goofy Goof",
+      "email": "goofy.goof@disney.com",
+      "imageUrl": "assets/images/goofy.png"
+    }
+]

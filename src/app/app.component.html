@@ -1,0 +1,18 @@
+<nav class='navbar navbar-expand navbar-dark bg-dark'>
+  <a class='navbar-brand'>{{pageTitle}}</a>
+  <ul class='nav nav-pills'>
+    <!--
+      "routerLink" is a built-in Angular router directive.
+      When a user clicks on the anchortag, the Angular router navigates to the associated page.
+    -->
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/products']">Product List</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/tradeShift']">Trade Shift</a></li>
+  </ul>
+</nav>
+<div class='container'>
+  <!--
+    "router-outlet" is the built-in directive that works with routerLink to load HTML templates from components.
+  -->
+<router-outlet></router-outlet>
+</div>
